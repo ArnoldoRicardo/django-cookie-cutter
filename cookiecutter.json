@@ -1,6 +1,6 @@
 {
   "project_name": "Project Name",
-  "project_slug": "{{cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')ls}}",
+  "project_slug": "{{cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')}}",
   "author_name": "Arnoldo Ricardo",
   "author_email": "hola@arnoldoricardo.com",
   "time_zone": "America/Mexico_City",
