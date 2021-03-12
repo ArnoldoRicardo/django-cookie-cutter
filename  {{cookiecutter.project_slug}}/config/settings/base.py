@@ -3,7 +3,7 @@
 import environ
 
 ROOT_DIR = environ.Path(__file__) - 3
-APPS_DIR = ROOT_DIR.path('cride')
+APPS_DIR = ROOT_DIR.path('{{ cookiecutter.project_slug }}')
 
 env = environ.Env()
 
@@ -11,8 +11,8 @@ env = environ.Env()
 DEBUG = env.bool('DJANGO_DEBUG', False)
 
 # Language and timezone
-TIME_ZONE = 'America/Mexico_City'
-LANGUAGE_CODE = 'en-us'
+TIME_ZONE = '{{ cookiecutter.time_zone }}'
+LANGUAGE_CODE = '{{ cookiecutter.language_code }}'
 SITE_ID = 1
 USE_I18N = True
 USE_L10N = True
@@ -134,12 +134,12 @@ EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.s
 # Admin
 ADMIN_URL = 'admin/'
 ADMINS = [
-    ("""Pablo Trinidad""", 'pablotrinidad@ciencias.unam.mx'),
+    ("""{{ cookiecutter.author_name }}""", '{{ cookiecutter.author_email }}'),
 ]
 MANAGERS = ADMINS
 
 # Celery
-INSTALLED_APPS += ['cride.taskapp.celery.CeleryAppConfig']
+INSTALLED_APPS += ['{{ cookiecutter.project_slug }}.taskapp.celery.CeleryAppConfig']
 if USE_TZ:
     CELERY_TIMEZONE = TIME_ZONE
 CELERY_BROKER_URL = env('CELERY_BROKER_URL')

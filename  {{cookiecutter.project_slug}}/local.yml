@@ -7,8 +7,8 @@ volumes:
 services:
   django: &django
     build:
-      context: .
-      dockerfile: ./compose/local/django/Dockerfile
+      context: ..
+      dockerfile: compose/local/django/Dockerfile
     image: cride_local_django
     depends_on:
       - postgres
@@ -23,8 +23,8 @@ services:
 
   postgres:
     build:
-      context: .
-      dockerfile: ./compose/production/postgres/Dockerfile
+      context: ..
+      dockerfile: compose/production/postgres/Dockerfile
     image: cride_production_postgres
     volumes:
       - local_postgres_data:/var/lib/postgresql/data
@@ -41,7 +41,7 @@ services:
     depends_on:
       - redis
       - postgres
-      
+
     ports: []
     command: /start-celeryworker
 
@@ -51,7 +51,7 @@ services:
     depends_on:
       - redis
       - postgres
-      
+
     ports: []
     command: /start-celerybeat
 

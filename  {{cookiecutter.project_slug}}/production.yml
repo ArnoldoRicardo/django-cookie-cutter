@@ -8,8 +8,8 @@ volumes:
 services:
   django: &django
     build:
-      context: .
-      dockerfile: ./compose/production/django/Dockerfile
+      context: ..
+      dockerfile: compose/production/django/Dockerfile
     image: cride_production_django
     depends_on:
       - postgres
@@ -21,8 +21,8 @@ services:
 
   postgres:
     build:
-      context: .
-      dockerfile: ./compose/production/postgres/Dockerfile
+      context: ..
+      dockerfile: compose/production/postgres/Dockerfile
     image: cride_production_postgres
     volumes:
       - production_postgres_data:/var/lib/postgresql/data
@@ -32,8 +32,8 @@ services:
 
   caddy:
     build:
-      context: .
-      dockerfile: ./compose/production/caddy/Dockerfile
+      context: ..
+      dockerfile: compose/production/caddy/Dockerfile
     image: cride_production_caddy
     depends_on:
       - django
