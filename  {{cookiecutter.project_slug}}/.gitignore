@@ -268,7 +268,7 @@ tags
 
 ### Project template
 
-{{ cookiecutter.project_slug }}/media/
+{{cookiecutter.project_slug}}/media/
 
 .pytest_cache/
 

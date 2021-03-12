@@ -8,7 +8,7 @@ services:
   django: &django
     build:
       context: ..
-      dockerfile: compose/local/django/Dockerfile
+      dockerfile: ./compose/local/django/Dockerfile
     image: cride_local_django
     depends_on:
       - postgres
@@ -24,7 +24,7 @@ services:
   postgres:
     build:
       context: ..
-      dockerfile: compose/production/postgres/Dockerfile
+      dockerfile: ./compose/production/postgres/Dockerfile
     image: cride_production_postgres
     volumes:
       - local_postgres_data:/var/lib/postgresql/data
